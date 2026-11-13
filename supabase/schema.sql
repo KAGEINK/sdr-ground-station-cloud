@@ -52,3 +52,8 @@ create policy "public read images" on public.images
 insert into storage.buckets (id, name, public)
 values ('satellite-images', 'satellite-images', true)
 on conflict (id) do update set public = true;
+
+-- 5) Explicit grants (needed when "Automatically expose new tables" is off)
+grant usage on schema public to anon, authenticated, service_role;
+grant select on public.passes, public.images to anon, authenticated;
+grant all on public.passes, public.images to service_role;
