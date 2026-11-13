@@ -1,0 +1,4 @@
+# Station PC (the computer running SatDump)
+supabase>=2.6
+python-dotenv>=1.0
+Pillow>=10.0
